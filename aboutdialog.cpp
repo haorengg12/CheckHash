@@ -7,6 +7,8 @@ AboutDialog::AboutDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("关于此软件");
+    QPixmap pic(":/mainwindow/icon/Res/ProfilePicture.jpg");
+    ui->label_my_photo->setPixmap(pic.scaled(ui->label_my_photo->width(), ui->label_my_photo->height(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     setModal(true);
 }
 
@@ -34,7 +36,7 @@ void AboutDialog::changeEvent(QEvent *event)
 
 void AboutDialog::on_label_Website_linkActivated(const QString &link)
 {
-    ui->label_Website->setText(QApplication::translate("AboutDialog", "<html><head/><body><p><a href=\"https://github.com/haorengg12\"><span style=\" text-decoration: underline; color:#800080;\">Harley·Huang</span></a></p></body></html>", Q_NULLPTR));
-    QUrl url("https://www.github.com/haorengg12");
+    ui->label_Website->setText(QApplication::translate("AboutDialog", "<html><head/><body><p><a href=\"https://github.com/haorengg12/CheckHash\"><span style=\" text-decoration: underline; color:#800080;\">Harley·Huang</span></a></p></body></html>", Q_NULLPTR));
+    QUrl url(link);
     QDesktopServices::openUrl(url);
 }
